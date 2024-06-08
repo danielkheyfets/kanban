@@ -1,0 +1,59 @@
+﻿<Window x:Class="Presentation.View.TaskView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Presentation.View" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d"
+        Title="TaskView" Height="400" Width="500">
+    <Border Padding="10" Background="#FF56585B" CornerRadius="0">
+
+        <StackPanel >
+
+            <!--MainPannel-->
+            <Border Background="#FF696B74" CornerRadius="10" Height="400" >
+                <StackPanel>
+                    <Grid>
+                        <Grid>
+                            <Label Content="Title:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,40,0,0" FontWeight="Bold" FontSize="14" Foreground="White" />
+                            <TextBox HorizontalAlignment="Left" Height="25" TextWrapping="Wrap" Text="{Binding Title, Mode=TwoWay}" VerticalAlignment="Top" Width="300" Margin="120,40,0,0" FontSize="14" FontStyle="Italic" Name="Title"/>
+
+                        </Grid>
+                        <Grid>
+                            <Label Content="Description:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,80,0,0" FontWeight="Bold" FontSize="14" Foreground="White" />
+                            <TextBox HorizontalAlignment="Left" Height="100" Width="300" TextWrapping="Wrap" Text="{Binding Description, Mode=TwoWay}" VerticalAlignment="Top"  Margin="120,80,0,0" FontSize="14" FontStyle="Italic" Name="Description"/>
+
+                        </Grid>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*">
+                                </ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Content="Due date:" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,200,0,0" FontWeight="Bold" FontSize="14" Foreground="White" />
+                            <xctk:DateTimePicker HorizontalAlignment="Left" Value="{Binding DueDate, Mode=TwoWay}" Text="{Binding DueDate, Mode=TwoWay}" VerticalAlignment="Top" Width="200" Name="DueDate" Grid.ColumnSpan="2" Margin="98,207,0,0"/>
+
+                        </Grid>
+
+                        <Grid Margin="0 260 0 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Button Grid.Column="0"  Width="100" Click="Cancel_click" Margin="125,0,10,0" FontSize="18" >cancel</Button>
+                            <Button Grid.Column="1"  Width="100"  Click="Save_click" Margin="10,0,125,0" FontSize="18" >save</Button>
+                        </Grid>
+
+                    </Grid>
+                    <Label  Content="{Binding Path=Message, Mode=OneWay}" Name="Lable" Margin="10" HorizontalAlignment="Center" Foreground="Red" ></Label>
+
+                </StackPanel>
+            </Border>
+            <!--MainPannel-->
+
+        </StackPanel>
+
+    </Border>
+</Window>
